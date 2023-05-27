@@ -44,19 +44,19 @@ All the Languages are listed below .
 | GoLang | go |
 | JS | javascript |
 
-- On Postman : `(recommended)`
+### On Postman : `(recommended)`
 
-  Sending a json post request to `http://localhost:3300/api/v1/submit`
+Sending a json post request to `http://localhost:3300/api/v1/submit`
 
-  ### It is a c++ script to print Hello World.
+### It is a c++ script to print Hello World.
 
-  ```json
-  {
-    "src": "\n\n#include<bits/stdc++.h>\n\nusing namespace std ;\n\nint main()\n{  cout << \"Hello World \"<< endl ;}",
-    "stdin": "48\n95",
-    "lang": "cpp"
-  }
-  ```
+```json
+{
+  "src": "\n\n#include<bits/stdc++.h>\n\nusing namespace std ;\n\nint main()\n{  cout << \"Hello World \"<< endl ;}",
+  "stdin": "48\n95",
+  "lang": "cpp"
+}
+```
 
     <br>
 
@@ -75,7 +75,7 @@ The output is a JSON object comprising only one parameter that is the output.
 
 #### `GET` /
 
-Make a GET request on "http://localhost:3300/api/v1/results/Test59b64ddfdd6978a4fef4"
+Make a GET request on `http://localhost:3300/api/v1/results/Test59b64ddfdd6978a4fef4`
 
 the output will be
 
@@ -109,13 +109,13 @@ If the request is in waiting stage i.e. in queue.
 
     "status":"Processing"
 
-    Script is running
+Script is running
 
 <br>
 
     "status":"Runtime Error"
 
-    Most probably timeout happened
+Most probably timeout happened
 
 <br>
 
