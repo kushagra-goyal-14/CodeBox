@@ -1,10 +1,22 @@
 # CodeBox
 
-A scalable Node.js-powered platform for executing code with ease.
+> API is still under early stages of development, so feel free to contribute in the project.
 
 ### Introducing the new CodeBox API
 
 An API which executes codes,
+
+## Requirements !!
+
+Docker and docker-compose should be present on the machine.
+
+`Step 1 :`
+
+    Clone the repo
+
+`Step 2 :` building the images and start the container.
+
+    docker compose up
 
 ### Execute Code and fetch output
 
@@ -12,7 +24,7 @@ An API which executes codes,
 
 This endpoint allows you to execute your script and fetch output results.
 
-### What are the Input Parameters for execute api call?
+### Inputs required for API call -
 
 | Parameter | Description                                                                                                                   |
 | --------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -22,7 +34,7 @@ This endpoint allows you to execute your script and fetch output results.
 
 ### What are the languages that are supported for execution?
 
-Whichever language you might mention in the language field, it would be automatically executed with the latest version of it's compiler.
+All the Languages are listed below .
 | Languages | Language as a payload |
 |-----------|-----------------------|
 | C++ | cpp |
@@ -51,3 +63,77 @@ Whichever language you might mention in the language field, it would be automati
 ### Sample Output
 
 The output is a JSON object comprising only one parameter that is the output.
+
+```json
+{
+  "message": "Successfully ran it",
+  "data": "http://localhost:3300/api/v1/results/Test59b64ddfdd6978a4fef4",
+  "err": {},
+  "success": true
+}
+```
+
+#### `GET` /
+
+Make a GET request on "http://localhost:3300/api/v1/results/Test59b64ddfdd6978a4fef4"
+
+the output will be
+
+```json
+{
+  "message": "Successfully got it",
+  "data": "{\"output\":\"Hello World \\n\",\"status\":\"Success\",\"stderr\":\"\",\"submission_id\":\"Test59b64ddfdd6978a4fef4\"}",
+  "err": {},
+  "success": true
+}
+```
+
+<br>
+<br>
+
+## Different types of status:
+
+<br>
+
+    "status": "Invalid Request"
+
+If the field in post request is empty then it will show invalid request
+
+<br>
+
+    "status":"Queued"
+
+If the request is in waiting stage i.e. in queue.
+
+<br>
+
+    "status":"Processing"
+
+    Script is running
+
+<br>
+
+    "status":"Runtime Error"
+
+    Most probably timeout happened
+
+<br>
+
+    "status":"Failed"
+
+Causes due to compilation error or runtime error.
+
+<br>
+
+    "status":"Successful"
+
+Worked Successfully !!
+
+<br>
+<br>
+
+##PORT - 3300
+
+This port is exposed by docker-compose.
+
+> This project is not deployed as it requires a full instance due to various microservices, but a version will be deployed that is not scaled like this version but will be usefull for running all the codes.
