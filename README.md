@@ -58,10 +58,6 @@ Sending a json post request to `http://localhost:3300/api/v1/submit`
 }
 ```
 
-    <br>
-
-### Sample Output
-
 The output is a JSON object comprising only one parameter that is the output.
 
 ```json
