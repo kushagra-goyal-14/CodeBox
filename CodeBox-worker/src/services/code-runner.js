@@ -14,6 +14,9 @@ const extensions = {
 
 async function runCode(json_msg, channel, msg) {
   try {
+    await client.set(json_msg.filename.toString(), '{"status":"Processing"}', {
+      EX: 300,
+    });
     const timeout = 20;
     const { comCommand, comArgs, exCommand, exArgs } = commandMap(
       json_msg.filename,

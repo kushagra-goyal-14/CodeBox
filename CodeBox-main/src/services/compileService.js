@@ -9,11 +9,10 @@ class compileService {
         src: req.body.src,
         stdin: req.body.stdin,
         lang: req.body.lang,
-        timeout: req.body.timeout,
         filename: "Test" + random(10),
       };
       console.log(req.body.src);
-      if (req.body.src && req.body.lang && parseInt(req.body.timeout) <= 5) {
+      if (req.body.src && req.body.lang) {
         if (data) {
           eventEmitter.emit("message_received", data);
           console.log(data);
